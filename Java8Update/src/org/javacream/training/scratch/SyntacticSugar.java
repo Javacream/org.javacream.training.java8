@@ -13,6 +13,10 @@ public class SyntacticSugar {
 	StringNormalizer toUpper3 = (input) -> input.toUpperCase();
 	//Optional ()
 	StringNormalizer toUpper4 = input -> input.toUpperCase();
+    
+	Hugo hugo = (String input) -> {return input.toUpperCase();};
+	
+	//toUpper = hugo;
     }
 
 }

@@ -9,11 +9,12 @@ public class AddressNormalizer {
     private List<StringNormalizer> streetNormalizers;
     
     {
+	StringHelper helper = new StringHelper(true);
 	cityNormalizers = new LinkedList<>();
 	streetNormalizers = new LinkedList<>();
-	StringNormalizer toUpper = (String input) -> {return input.toUpperCase();};
+	StringNormalizer toUpper = StringUtils::convertToUpper;//(String input) -> {return input.toUpperCase();};
 	cityNormalizers.add(toUpper);
-	streetNormalizers.add(toUpper);
+	streetNormalizers.add(helper::convertIt);
 	streetNormalizers.add((String input) -> {
 	   if (input.endsWith("STR")) {
 	       input = input + "ASSE";
