@@ -1,4 +1,4 @@
-package org.javacream.people;
+package org.javacream.training.scratch;
 
 public class SimpleDistanceAlgorithmTopLevel implements DistanceAlgorithm{
 

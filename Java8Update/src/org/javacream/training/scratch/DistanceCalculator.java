@@ -1,4 +1,6 @@
-package org.javacream.people;
+package org.javacream.training.scratch;
+
+import org.javacream.training.address.Address;
 
 public class DistanceCalculator {
     private String name;

@@ -1,4 +1,7 @@
-package org.javacream.people;
+package org.javacream.training.people;
+
+import org.javacream.training.address.Address;
+import org.javacream.training.companies.Company;
 
 public class PeopleApplication {
 

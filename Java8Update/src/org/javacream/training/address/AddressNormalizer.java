@@ -1,4 +1,4 @@
-package org.javacream.people;
+package org.javacream.training.address;
 
 import java.util.LinkedList;
 import java.util.List;

@@ -1,7 +1,7 @@
-package org.javacream.people;
+package org.javacream.training.scratch;
 
-import org.javacream.people.DistanceCalculator.SimpleDistanceAlgorithmInner;
-import org.javacream.people.DistanceCalculator.SimpleDistanceAlgorithmInnerStatic;
+import org.javacream.training.scratch.DistanceCalculator.SimpleDistanceAlgorithmInner;
+import org.javacream.training.scratch.DistanceCalculator.SimpleDistanceAlgorithmInnerStatic;
 
 public class DistanceApplication {
 

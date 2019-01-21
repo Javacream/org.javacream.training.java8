@@ -1,4 +1,7 @@
-package org.javacream.people;
+package org.javacream.training.companies;
+
+import org.javacream.training.address.Address;
+import org.javacream.training.address.Addressable;
 
 public class Company implements Addressable{
 
