@@ -1,5 +1,6 @@
 package org.javacream.training.people;
 
+import java.time.ZonedDateTime;
 import java.util.Optional;
 
 import org.javacream.training.address.Address;
@@ -13,8 +14,16 @@ public class Person implements Addressable {
 	this.firstname = firstname;
 	this.gender = gender;
 	this.height = height;
+	this.dateOfBirth = ZonedDateTime.now();
+    }
+    private ZonedDateTime dateOfBirth;
+    public ZonedDateTime getDateOfBirth() {
+        return dateOfBirth;
     }
 
+    public void setDateOfBirth(ZonedDateTime dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
     private Long id;
     private String lastname;
     private String firstname;
@@ -108,8 +117,9 @@ public class Person implements Addressable {
 
     @Override
     public String toString() {
-	return "Person [lastname=" + lastname + ", firstname=" + firstname + ", gender=" + gender + ", height=" + height
-		+ "]";
+	return "Person [dateOfBirth=" + dateOfBirth + ", id=" + id + ", lastname=" + lastname + ", firstname="
+		+ firstname + ", gender=" + gender + ", height=" + height + ", address=" + address + ", partner="
+		+ partner + "]";
     }
 
     public String sayHello() {

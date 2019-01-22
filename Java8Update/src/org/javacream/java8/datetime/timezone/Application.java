@@ -19,6 +19,7 @@ public class Application {
 	for (String s : ZoneId.getAvailableZoneIds()) {
 	    out.print(s + " ");
 	}
+	out.println();
 	ZoneId zid1 = ZoneId.systemDefault();
 	out.println(zid1);
 	ZoneId zid2 = ZoneId.of("Europe/Berlin");

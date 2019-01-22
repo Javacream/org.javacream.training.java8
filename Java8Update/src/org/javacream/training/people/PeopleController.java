@@ -1,5 +1,8 @@
 package org.javacream.training.people;
 
+import java.time.Period;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -30,8 +33,12 @@ public class PeopleController {
 	
 	for (int i = 0; i < 100; i++) {
 	    	char gender = i%2==0?'m':'f';
-		Person p = new Person("Lastname" + i, "Firstname" + i, gender, (int)(120 + 0.5*i));
+	    	int month = i%10 + 1;
+	    	int day = i%20 + 1 ;
+		ZonedDateTime dateOfBirth = ZonedDateTime.of(2018, month, day, month, day, 42, 0, ZoneId.systemDefault());
+	    	Person p = new Person("Lastname" + i, "Firstname" + i, gender, (int)(120 + 0.5*i));
 		p.setAddress(addresses.get(i%4));
+		p.setDateOfBirth(dateOfBirth);
 		save(p);
 	}
     }
@@ -51,6 +58,9 @@ public class PeopleController {
     
     public Set<Person> findByLastName(String lastname){
 	return PeopleStreamHelper.findByLastname(peopleMap.values().stream(), lastname);
+    }
+    public Set<Person> findByBirthDate(ZonedDateTime start, Period period){
+	return PeopleStreamHelper.findByBirthDate(peopleMap.values().stream(), start, period);
     }
     
 }
