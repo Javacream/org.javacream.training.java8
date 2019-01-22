@@ -1,27 +1,42 @@
 package org.javacream.training.people;
 
+import java.util.Optional;
+
 import org.javacream.training.address.Address;
 import org.javacream.training.address.Addressable;
 
 public class Person implements Addressable {
 
+    public Person(String lastname, String firstname, Character gender, Integer height) {
+	super();
+	this.lastname = lastname;
+	this.firstname = firstname;
+	this.gender = gender;
+	this.height = height;
+    }
+
+    private Long id;
     private String lastname;
     private String firstname;
     private Character gender;
     private Integer height;
 
-    private Address address;
+    private Optional<Address> address;
+    
+    {
+	partner = Optional.empty();
+    }
 
     /* (non-Javadoc)
      * @see org.javacream.people.Addressable#getAddress()
      */
     @Override
     public Address getAddress() {
-	return address;
+	return address.orElse(new Address("unknown", "unknown"));
     }
 
     public void setAddress(Address address) {
-	this.address = address;
+	this.address = Optional.of(address);
     }
 
     public String getLastname() {
@@ -46,14 +61,6 @@ public class Person implements Addressable {
 
     public Character getGender() {
 	return gender;
-    }
-
-    public Person(String lastname, String firstname, Character gender, Integer height) {
-	super();
-	this.lastname = lastname;
-	this.firstname = firstname;
-	this.gender = gender;
-	this.height = height;
     }
 
     @Override
@@ -109,12 +116,12 @@ public class Person implements Addressable {
 	return "Hello, my name is " + this.firstname + " " + this.lastname;
     }
 
-    private Person partner;
+    private Optional<Person> partner;
 
     public Boolean marry(Person newPartner) {
-	if ((this.partner == null) && (newPartner.partner == null) && (newPartner != this)) {
-	    this.partner = newPartner;
-	    newPartner.partner = this;
+	if ((!this.partner.isPresent()) && (!newPartner.partner.isPresent()) && (newPartner != this)) {
+	    this.partner = Optional.of(newPartner);
+	    newPartner.partner = Optional.of(this);
 	    return true;
 	} else {
 	    return false;
@@ -122,13 +129,21 @@ public class Person implements Addressable {
     }
 
     public Boolean divorce() {
-	if (this.partner != null) {
-	    this.partner.partner = null;
-	    this.partner = null;
+	if (this.partner.isPresent()) {
+	    this.partner.get().partner = Optional.empty();
+	    this.partner = Optional.empty();
 	    return true;
 	} else {
 	    return false;
 	}
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
 }

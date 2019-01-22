@@ -4,17 +4,18 @@ import org.javacream.training.address.Address;
 
 public class DistanceCalculator {
     private String name;
+    @SuppressWarnings("unused")
     private DistanceAlgorithm distanceAlgorithm;
 
+    @SuppressWarnings("unused")
     public Double calculateDistance(Address a1, Address a2) {
 	// getCoordinate for a1
 	// getCoordinate for a2
 	//message: Referenz vom Typ String-Objekt im Heap erstellt durch das String-Literal ""	
 	String message = "Hugo";
 	
-	Integer number = 42;
-	
 	DistanceAlgorithm da = (double d1, double d2) -> {return 4711;};
+	@SuppressWarnings("unused")
 	class SimpleDistanceAlgorithmMethodLevel implements DistanceAlgorithm {
 
 	    @Override

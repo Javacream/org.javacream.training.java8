@@ -23,6 +23,7 @@ public class ClosureDemo {
 
     public StringNormalizer outer() {
 	//outerVar = local var
+	@SuppressWarnings("unused")
 	String noClosure = "";
 	String outerVar = "OUTER " + System.currentTimeMillis();
 	System.out.println("in outer: " + outerVar);
